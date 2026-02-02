@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,33 +60,56 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        nexus: {
+          black: "hsl(var(--nexus-black))",
+          "black-deep": "hsl(var(--nexus-black-deep))",
+          white: "hsl(var(--nexus-white))",
+          "gray-100": "hsl(var(--nexus-gray-100))",
+          "gray-200": "hsl(var(--nexus-gray-200))",
+          "gray-300": "hsl(var(--nexus-gray-300))",
+          "gray-400": "hsl(var(--nexus-gray-400))",
+          "gray-500": "hsl(var(--nexus-gray-500))",
+          "gray-600": "hsl(var(--nexus-gray-600))",
+          red: "hsl(var(--nexus-red))",
+          blue: "hsl(var(--nexus-blue))",
+          emerald: "hsl(var(--nexus-emerald))",
+          gold: "hsl(var(--nexus-gold))",
+          "gold-light": "hsl(var(--nexus-gold-light))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+        "4xl": "2rem",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "25%": { transform: "translate(10px, -15px)" },
+          "50%": { transform: "translate(-5px, 10px)" },
+          "75%": { transform: "translate(-10px, -5px)" },
+        },
+        pulse: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        float: "float 8s ease-in-out infinite",
+        "pulse-slow": "pulse 3s ease-in-out infinite",
       },
     },
   },
