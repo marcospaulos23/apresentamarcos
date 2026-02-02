@@ -40,6 +40,9 @@ const HeroSection = () => {
 
   return (
     <section className="relative h-screen overflow-hidden bg-[#000000]">
+      {/* Central Glow - Only in Hero Section */}
+      <div className="hero-central-glow" />
+      
       {/* Grid Mesh - Only in Hero Section */}
       <div className="hero-grid-mesh" />
 
