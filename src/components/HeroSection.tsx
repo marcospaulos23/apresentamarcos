@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
   const [isSubVisible, setIsSubVisible] = useState(false);
 
   useEffect(() => {
@@ -40,12 +39,9 @@ const HeroSection = () => {
   }, [isSubVisible]);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-background">
-      {/* Central Glow */}
-      <div className="central-glow" />
-      
-      {/* Grid Mesh */}
-      <div className="grid-mesh" />
+    <section className="relative h-screen overflow-hidden bg-[#000000]">
+      {/* Grid Mesh - Only in Hero Section */}
+      <div className="hero-grid-mesh" />
 
       {/* Floating Navigation */}
       <nav className="floating-nav fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[1000px] h-16 rounded-[22px] flex items-center justify-between px-8 z-50">
@@ -78,26 +74,15 @@ const HeroSection = () => {
 
       {/* Main Content */}
       <main className="relative z-10 h-full flex flex-col justify-center items-center px-8">
-        <motion.div 
-          ref={heroRef}
-          className="flex flex-col items-center"
-          animate={{ 
-            x: [0, 10, -5, -10, 0],
-            y: [0, -15, 10, -5, 0]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
+        {/* Static Title - No Animation */}
+        <div className="flex flex-col items-center">
           <h1 className="shimmer-text text-[clamp(3rem,10vw,8.5rem)] font-black text-center leading-[0.95] tracking-[-0.06em] uppercase flex flex-col items-center">
             <span>FUTURE</span>
             <span>STANDARDS</span>
           </h1>
-        </motion.div>
+        </div>
 
-        {/* Sub Headline */}
+        {/* Sub Headline - Static Red Line */}
         <motion.div 
           className="absolute bottom-16 left-8 md:left-16 max-w-[420px] border-l-2 border-accent pl-8 z-20"
           initial={{ opacity: 0, y: 20 }}

@@ -109,41 +109,19 @@
 }
 
 @layer components {
-  /* Central Glow Effect */
-  .central-glow {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100vw;
-    height: 100vw;
-    max-width: 1400px;
-    max-height: 1400px;
-    background: radial-gradient(
-      circle at center, 
-      rgba(255, 255, 255, 0.6) 0%, 
-      rgba(255, 255, 255, 0.2) 20%, 
-      rgba(255, 255, 255, 0.05) 45%,
-      transparent 75%
-    );
-    filter: blur(45px);
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  /* Grid Mesh */
-  .grid-mesh {
-    position: fixed;
+  /* Grid Mesh - Hero Section Only */
+  .hero-grid-mesh {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-size: 60px 60px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
-    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 35%, transparent 90%);
-    mask-image: radial-gradient(circle at 50% 50%, black 35%, transparent 90%);
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
+    mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
     z-index: 1;
     pointer-events: none;
   }
