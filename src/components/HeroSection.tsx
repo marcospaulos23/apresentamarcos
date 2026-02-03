@@ -1,35 +1,27 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const [isSubVisible, setIsSubVisible] = useState(false);
-  const [isLocked, setIsLocked] = useState(true);
-
-  const unlockScroll = useCallback(() => {
-    setIsLocked(false);
-    document.body.style.overflow = "auto";
-  }, []);
-
-  const lockScroll = useCallback(() => {
-    setIsLocked(true);
-    document.body.style.overflow = "hidden";
-  }, []);
+  const isLockedRef = useRef(true);
+  const isSubVisibleRef = useRef(false);
 
   useEffect(() => {
     // Lock scroll on mount
     document.body.style.overflow = "hidden";
 
     const handleWheel = (e: WheelEvent) => {
-      if (isLocked) {
+      if (isLockedRef.current) {
         e.preventDefault();
         
-        if (e.deltaY > 0 && !isSubVisible) {
+        if (e.deltaY > 0 && !isSubVisibleRef.current) {
+          isSubVisibleRef.current = true;
           setIsSubVisible(true);
           // Unlock after animation completes
-          setTimeout(unlockScroll, 800);
-        } else if (e.deltaY < 0 && isSubVisible) {
-          setIsSubVisible(false);
-          lockScroll();
+          setTimeout(() => {
+            isLockedRef.current = false;
+            document.body.style.overflow = "auto";
+          }, 800);
         }
       }
     };
@@ -40,16 +32,17 @@ const HeroSection = () => {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      if (isLocked) {
+      if (isLockedRef.current) {
         e.preventDefault();
         
         const touchEndY = e.touches[0].clientY;
-        if (touchStartY - touchEndY > 30 && !isSubVisible) {
+        if (touchStartY - touchEndY > 30 && !isSubVisibleRef.current) {
+          isSubVisibleRef.current = true;
           setIsSubVisible(true);
-          setTimeout(unlockScroll, 800);
-        } else if (touchEndY - touchStartY > 30 && isSubVisible) {
-          setIsSubVisible(false);
-          lockScroll();
+          setTimeout(() => {
+            isLockedRef.current = false;
+            document.body.style.overflow = "auto";
+          }, 800);
         }
       }
     };
@@ -64,7 +57,7 @@ const HeroSection = () => {
       window.removeEventListener("touchmove", handleTouchMove);
       document.body.style.overflow = "auto";
     };
-  }, [isSubVisible, isLocked, unlockScroll, lockScroll]);
+  }, []);
 
   return (
     <section className="relative h-screen overflow-hidden bg-[#000000]">
