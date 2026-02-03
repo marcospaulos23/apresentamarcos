@@ -1,15 +1,36 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const [isSubVisible, setIsSubVisible] = useState(false);
+  const [isLocked, setIsLocked] = useState(true);
+
+  const unlockScroll = useCallback(() => {
+    setIsLocked(false);
+    document.body.style.overflow = "auto";
+  }, []);
+
+  const lockScroll = useCallback(() => {
+    setIsLocked(true);
+    document.body.style.overflow = "hidden";
+  }, []);
 
   useEffect(() => {
+    // Lock scroll on mount
+    document.body.style.overflow = "hidden";
+
     const handleWheel = (e: WheelEvent) => {
-      if (e.deltaY > 0 && !isSubVisible) {
-        setIsSubVisible(true);
-      } else if (e.deltaY < 0 && isSubVisible) {
-        setIsSubVisible(false);
+      if (isLocked) {
+        e.preventDefault();
+        
+        if (e.deltaY > 0 && !isSubVisible) {
+          setIsSubVisible(true);
+          // Unlock after animation completes
+          setTimeout(unlockScroll, 800);
+        } else if (e.deltaY < 0 && isSubVisible) {
+          setIsSubVisible(false);
+          lockScroll();
+        }
       }
     };
 
@@ -19,24 +40,31 @@ const HeroSection = () => {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
-      const touchEndY = e.touches[0].clientY;
-      if (touchStartY - touchEndY > 30 && !isSubVisible) {
-        setIsSubVisible(true);
-      } else if (touchEndY - touchStartY > 30 && isSubVisible) {
-        setIsSubVisible(false);
+      if (isLocked) {
+        e.preventDefault();
+        
+        const touchEndY = e.touches[0].clientY;
+        if (touchStartY - touchEndY > 30 && !isSubVisible) {
+          setIsSubVisible(true);
+          setTimeout(unlockScroll, 800);
+        } else if (touchEndY - touchStartY > 30 && isSubVisible) {
+          setIsSubVisible(false);
+          lockScroll();
+        }
       }
     };
 
-    window.addEventListener("wheel", handleWheel);
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
+      document.body.style.overflow = "auto";
     };
-  }, [isSubVisible]);
+  }, [isSubVisible, isLocked, unlockScroll, lockScroll]);
 
   return (
     <section className="relative h-screen overflow-hidden bg-[#000000]">
