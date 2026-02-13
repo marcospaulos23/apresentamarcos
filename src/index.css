@@ -7,13 +7,13 @@
 @layer base {
   :root {
     --background: 0 0% 4%;
-    --foreground: 0 0% 98%;
+    --foreground: 0 0% 100%;
 
     --card: 0 0% 7%;
-    --card-foreground: 0 0% 98%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 98%;
+    --popover-foreground: 0 0% 100%;
 
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 4%;
@@ -36,40 +36,40 @@
 
     --radius: 0.75rem;
 
-    /* Custom Nexus Design Tokens */
+    /* Custom Nexus Design Tokens (Dark) */
     --nexus-black: 0 0% 4%;
     --nexus-black-deep: 0 0% 2%;
     --nexus-white: 0 0% 100%;
-    --nexus-gray-100: 0 0% 90%;
-    --nexus-gray-200: 0 0% 75%;
-    --nexus-gray-300: 0 0% 55%;
-    --nexus-gray-400: 0 0% 35%;
+    --nexus-gray-100: 0 0% 95%;
+    --nexus-gray-200: 0 0% 80%;
+    --nexus-gray-300: 0 0% 60%;
+    --nexus-gray-400: 0 0% 40%;
     --nexus-gray-500: 0 0% 20%;
     --nexus-gray-600: 0 0% 12%;
-    
+
     --nexus-red: 0 84% 60%;
     --nexus-blue: 217 91% 60%;
     --nexus-emerald: 160 84% 39%;
-    --nexus-gold: 38 60% 50%;
-    --nexus-gold-light: 45 90% 75%;
+    --nexus-gold: 38 70% 45%;
+    --nexus-gold-light: 45 90% 65%;
 
-    /* Gradients */
-    --gradient-shimmer: linear-gradient(90deg, hsl(0 0% 55%) 0%, hsl(0 0% 55%) 35%, hsl(0 0% 100%) 50%, hsl(0 0% 55%) 65%, hsl(0 0% 55%) 100%);
-    --gradient-gold: radial-gradient(67.54% 100.03% at 50% 0%, hsl(45 90% 85%) 0%, hsl(42 80% 78%) 25.48%, hsl(40 90% 65%) 62.5%, hsl(38 60% 40%) 100%);
-    --gradient-glass: rgba(18, 18, 18, 0.75);
+    /* Gradients (Ajustados para Dark) */
+    --gradient-shimmer: linear-gradient(90deg, hsl(0 0% 15%) 0%, hsl(0 0% 15%) 35%, hsl(0 0% 90%) 50%, hsl(0 0% 15%) 65%, hsl(0 0% 15%) 100%);
+    --gradient-gold: radial-gradient(67.54% 100.03% at 50% 0%, hsl(45 90% 75%) 0%, hsl(42 80% 68%) 25.48%, hsl(40 90% 55%) 62.5%, hsl(38 60% 30%) 100%);
+    --gradient-glass: rgba(255, 255, 255, 0.03);
 
-    /* Shadows */
-    --shadow-glow: 0 0 60px rgba(0, 0, 0, 1);
-    --shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    --shadow-card-hover: 0 40px 80px -15px rgba(0, 0, 0, 0.8);
-    --shadow-gold: 0 10px 30px -5px rgba(184, 134, 11, 0.4);
+    /* Shadows (Ajustados para Dark) */
+    --shadow-glow: 0 0 60px rgba(255, 255, 255, 0.05);
+    --shadow-card: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    --shadow-card-hover: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+    --shadow-gold: 0 10px 30px -5px rgba(184, 134, 11, 0.3);
 
-    --sidebar-background: 0 0% 6%;
-    --sidebar-foreground: 0 0% 90%;
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 0 84% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 12%;
-    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 15%;
     --sidebar-ring: 0 84% 60%;
   }
@@ -109,6 +109,7 @@
 }
 
 @layer components {
+
   /* Central Glow Effect - Hero Section Only */
   .hero-central-glow {
     position: absolute;
@@ -119,13 +120,11 @@
     height: 100vw;
     max-width: 1400px;
     max-height: 1400px;
-    background: radial-gradient(
-      circle at center, 
-      rgba(255, 255, 255, 0.6) 0%, 
-      rgba(255, 255, 255, 0.2) 20%, 
-      rgba(255, 255, 255, 0.05) 45%,
-      transparent 75%
-    );
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.25) 0%,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.05) 40%,
+        transparent 70%);
     filter: blur(45px);
     z-index: 0;
     pointer-events: none;
@@ -138,12 +137,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: 60px 60px;
+    background-size: 100px 100px;
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
-    mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
+      linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+    -webkit-mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
+    mask-image: radial-gradient(circle at 50% 50%, black 30%, transparent 90%);
     z-index: 1;
     pointer-events: none;
   }
@@ -155,13 +154,18 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 60px rgba(0,0,0,1));
+    filter: drop-shadow(0 0 60px rgba(0, 0, 0, 1));
     animation: shimmer 6s infinite linear;
   }
 
   @keyframes shimmer {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
   }
 
   /* Glass Card */
@@ -214,17 +218,21 @@
     background-size: 40px 40px;
   }
 
-  /* Premium Button */
+  /* Premium Button - Dark Mode */
   .premium-button {
     position: relative;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     overflow: hidden;
   }
 
   .premium-button::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 12px;
     padding: 2px;
     background: linear-gradient(90deg, transparent, hsl(var(--nexus-gold)), transparent);
@@ -237,8 +245,13 @@
   }
 
   @keyframes borderRotate {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
   }
 
   /* Timeline */

@@ -5,24 +5,24 @@ const steps = [
   {
     number: "01",
     label: "O Início",
-    title: "Passo 1 – Problema",
-    description: "Mapeamos as ineficiências e os pontos críticos que estão a drenar o seu tempo e energia hoje. Identificamos gargalos que impedem o crescimento.",
+    title: "Passo 1 – Validação",
+    description: "Analisamos sua ideia de micro-SaaS ou SaaS, público-alvo e modelo de receita para garantir que o produto tenha demanda real. Definimos as funcionalidades essenciais do MVP e a melhor experiência para atrair os primeiros usuários.",
     tag: "Diagnóstico",
     color: "red",
   },
   {
     number: "02",
     label: "A Ponte",
-    title: "Passo 2 – Solução",
-    description: "Implementamos a tecnologia e os processos necessários para eliminar erros e criar um fluxo escalável através de automações personalizadas.",
+    title: "Passo 2 – Desenvolvimento",
+    description: "Construímos seu produto digital com tecnologia moderna, arquitetura escalável e foco em performance. Criamos sistemas de login, pagamentos, automações e dashboards prontos para crescimento contínuo.",
     tag: "Automação",
     color: "blue",
   },
   {
     number: "03",
     label: "O Objetivo",
-    title: "Passo 3 – Resultado",
-    description: "Sua operação passa a rodar com autonomia total e eficiência máxima. Através de métricas claras, você obtém resultados exponenciais e liberdade para focar na estratégia.",
+    title: "Passo 3 – Escala e Crescimento",
+    description: "Seu SaaS entra no mercado pronto para adquirir usuários e gerar receita recorrente. Com métricas claras e infraestrutura preparada, seu produto cresce de forma estável e previsível.",
     tag: "Liberdade",
     color: "emerald",
   },
@@ -64,7 +64,7 @@ const StepItem = ({ step, index }: { step: typeof steps[0]; index: number }) => 
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
       {/* Step Number */}
-      <motion.div 
+      <motion.div
         className={`absolute left-1/2 -translate-x-1/2 w-14 h-14 md:w-[60px] md:h-[60px] bg-background border-[3px] ${colors.border} rounded-full flex items-center justify-center font-extrabold ${colors.text} z-20 text-sm md:text-base`}
         initial={{ scale: 0.5, opacity: 0 }}
         animate={isInView ? { scale: 1, opacity: 1 } : {}}
@@ -96,11 +96,13 @@ const StepItem = ({ step, index }: { step: typeof steps[0]; index: number }) => 
 
 const ProcessSection = () => {
   return (
-    <section id="process" className="py-24 md:py-32 px-6 bg-background">
+    <section id="process" className="relative py-24 md:py-32 px-6 bg-background overflow-hidden">
+
+
       <div className="max-w-6xl mx-auto">
-        
+
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-24 md:mb-32"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,21 +127,23 @@ const ProcessSection = () => {
           ))}
         </div>
 
-        {/* Premium CTA Button */}
-        <motion.div 
-          className="mt-16 md:mt-24 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+        {/* CTA principal - Trocado por Botão Azul */}
+        <motion.div
+          className="mt-16 md:mt-24 flex justify-center"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <div className="relative flex flex-col items-center perspective-1000">
-            <button className="premium-button cursor-pointer relative px-12 md:px-[50px] py-5 md:py-[22px] text-sm md:text-base text-nexus-gold font-extrabold tracking-[2.5px] uppercase rounded-xl transition-all duration-500 hover:text-background hover:translate-y-[-8px] hover:shadow-[0_10px_30px_-5px_rgba(184,134,11,0.4)] group overflow-hidden">
-              <span className="absolute inset-0 bg-gradient-to-b from-nexus-gold-light via-nexus-gold to-[hsl(38,60%,40%)] transform scale-0 transition-transform duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-150 rounded-xl" />
-              <span className="relative z-10">Garantir minha Vaga</span>
-            </button>
-            <div className="w-full max-w-[200px] h-10 bg-gradient-to-b from-nexus-gold/20 to-transparent blur-lg mt-1 rounded-full opacity-40 transition-all duration-500 group-hover:opacity-70" />
-          </div>
+          <a
+            href="#"
+            className="group flex items-center gap-3 bg-gradient-to-br from-blue-600 to-blue-900 px-10 py-5 rounded-full text-white font-bold text-sm md:text-base uppercase tracking-widest shadow-[0_4px_25px_rgba(37,99,235,0.4)] transition-all hover:scale-105 hover:shadow-[0_8px_35px_rgba(37,99,235,0.6)] hover:brightness-110 active:scale-95"
+          >
+            👉 Falar sobre meu projeto
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
         </motion.div>
       </div>
     </section>

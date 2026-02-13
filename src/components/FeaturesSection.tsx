@@ -30,11 +30,13 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-16 md:py-24 px-8 md:px-16 bg-[#000000] min-h-screen flex items-center">
+    <section id="features" className="relative py-16 md:py-24 px-8 md:px-16 bg-background min-h-screen flex items-center overflow-hidden">
+
+
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
-        
+
         {/* Left Side: Text */}
-        <motion.div 
+        <motion.div
           className="space-y-8"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -48,24 +50,25 @@ const FeaturesSection = () => {
             </span>
             Próxima Geração
           </div>
-          
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-foreground">
-            Tecnologia que <br /> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-muted-foreground">
-              escala com você.
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] text-foreground tracking-tighter">
+            Tecnologia que <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-muted-foreground/60">
+              cresce com seu SaaS.
             </span>
           </h2>
-          
+
           <p className="text-muted-foreground text-lg max-w-lg leading-relaxed">
-            Nossa infraestrutura utiliza princípios de design atômico para garantir que sua interface seja rápida, fluida e visualmente impecável.
+            Construímos SaaS e sites personalizados com foco em conversão, performance e crescimento sustentável.
+            Cada projeto é pensado como um produto digital real — não como um template.
           </p>
-          
+
           <div className="pt-6">
-            <a 
+            <a
               href="#process"
               className="inline-block px-8 py-4 bg-foreground text-background font-bold rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform active:scale-95 shadow-xl shadow-foreground/5"
             >
-              Começar Projeto
+              Entre em Contato
             </a>
           </div>
         </motion.div>
@@ -85,19 +88,19 @@ const FeaturesSection = () => {
                 <div className="w-12 h-12 bg-foreground rounded-2xl flex items-center justify-center mb-6 md:mb-8 shadow-xl">
                   <feature.icon className="w-6 h-6 text-background" strokeWidth={2.5} />
                 </div>
-                <h3 className="text-xl md:text-2xl font-bold flex items-center tracking-tight text-foreground mb-1">
-                  <span className="text-accent mr-2 text-3xl font-light">|</span> 
+                <h3 className="text-xl md:text-2xl font-bold flex items-center tracking-tight text-white mb-1">
+                  <span className="text-accent mr-2 text-3xl font-light">|</span>
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground font-bold mb-3 md:mb-4 text-sm uppercase tracking-wide">
+                <p className="text-white/50 font-bold mb-3 md:mb-4 text-sm uppercase tracking-wide">
                   {feature.subtitle}
                 </p>
-                <p className="text-muted-foreground text-sm leading-relaxed max-w-[200px]">
+                <p className="text-white/70 text-sm leading-relaxed max-w-[200px]">
                   {feature.description}
                 </p>
               </div>
-              <div className="relative z-10 flex items-center text-[11px] font-black tracking-widest text-nexus-gray-200 group cursor-pointer hover:text-accent transition-colors">
-                DETALHES 
+              <div className="relative z-10 flex items-center text-[11px] font-black tracking-widest text-red-600 group cursor-pointer hover:opacity-80 transition-all">
+                DETALHES
                 <span className="mx-3 w-6 h-[1px] bg-muted transition-all group-hover:w-10 group-hover:bg-accent" />
                 →
               </div>
