@@ -30,7 +30,10 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="relative py-16 md:py-24 px-8 md:px-16 bg-background min-h-screen flex items-center overflow-hidden">
+    <section id="features" className="relative py-16 md:py-24 px-8 md:px-16 bg-background min-h-screen flex items-center">
+      {/* Ambient Red Glows */}
+      <div className="red-glow-ambient red-glow-top-left opacity-40" />
+      <div className="red-glow-ambient red-glow-bottom-right opacity-30" />
 
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">

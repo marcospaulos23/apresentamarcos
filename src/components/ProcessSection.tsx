@@ -96,7 +96,10 @@ const StepItem = ({ step, index }: { step: typeof steps[0]; index: number }) => 
 
 const ProcessSection = () => {
   return (
-    <section id="process" className="relative py-24 md:py-32 px-6 bg-background overflow-hidden">
+    <section id="process" className="relative py-24 md:py-32 px-6 bg-background">
+      {/* Ambient Red Glows */}
+      <div className="red-glow-ambient red-glow-center opacity-30 scale-150" />
+      <div className="red-glow-ambient red-glow-top-left opacity-20" />
 
 
       <div className="max-w-6xl mx-auto">

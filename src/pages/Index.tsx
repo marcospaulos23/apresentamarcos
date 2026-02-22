@@ -1,4 +1,5 @@
 import HeroSection from "@/components/HeroSection";
+import ProfileSection from "@/components/ProfileSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import ProcessSection from "@/components/ProcessSection";
 import { FocusRailSection } from "@/components/FocusRail";
@@ -9,6 +10,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       <HeroSection />
+      <ProfileSection />
       <FeaturesSection />
       <ProcessSection />
       <FocusRailSection />

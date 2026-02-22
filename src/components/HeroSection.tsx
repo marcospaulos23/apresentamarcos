@@ -83,9 +83,12 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-screen overflow-hidden bg-background">
+    <section className="relative h-screen bg-background">
       {/* Central Glow - Only in Hero Section */}
       <div className="hero-central-glow" />
+
+      {/* Ambient Red Glow */}
+      <div className="red-glow-ambient red-glow-bottom-right opacity-30" />
 
       {/* Grid Mesh - Only in Hero Section */}
       <div className="hero-grid-mesh" />
@@ -113,7 +116,7 @@ const HeroSection = () => {
 
         <a
           href="#process"
-          className="bg-foreground text-background px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all hover:bg-accent hover:text-accent-foreground"
+          className="btn-fill-right bg-white/10 border border-white/5 text-foreground px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all"
         >
           Entre em Contato
         </a>

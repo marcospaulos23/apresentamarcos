@@ -110,6 +110,34 @@
 
 @layer components {
 
+  /* Button Fill Left to Right Animation */
+  .btn-fill-right {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  }
+
+  .btn-fill-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: hsl(var(--accent));
+    z-index: -1;
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-fill-right:hover {
+    color: hsl(var(--accent-foreground)) !important;
+  }
+
+  .btn-fill-right:hover::before {
+    width: 100%;
+  }
+
   /* Central Glow Effect - Hero Section Only */
   .hero-central-glow {
     position: absolute;
@@ -257,5 +285,133 @@
   /* Timeline */
   .timeline-line {
     background: linear-gradient(to bottom, hsl(var(--nexus-red)), hsl(var(--nexus-blue)), hsl(var(--nexus-emerald)));
+  }
+
+  /* Profile Section Custom Styles */
+  .profile-dot-grid {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .animated-border-container {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 2px;
+    overflow: hidden;
+  }
+
+  .animated-border-container::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: conic-gradient(transparent, transparent, transparent, #ef4444);
+    animation: rotate-border 4s linear infinite;
+    top: -25%;
+    left: -25%;
+    z-index: 0;
+  }
+
+  .inner-content {
+    position: relative;
+    background: #080808;
+    border-radius: 1.4rem;
+    z-index: 1;
+  }
+
+  @keyframes rotate-border {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .code-font {
+    font-family: 'Fira Code', monospace;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .photo-square {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+  }
+
+  .photo-square::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 24px;
+    height: 24px;
+    border-top: 2px solid #ef4444;
+    border-left: 2px solid #ef4444;
+    z-index: 10;
+  }
+
+  .photo-square::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    width: 24px;
+    height: 24px;
+    border-bottom: 2px solid #ef4444;
+    border-right: 2px solid #ef4444;
+    z-index: 10;
+  }
+
+  .skill-item {
+    border-left: 2px solid rgba(239, 68, 68, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .skill-item:hover {
+    border-left-color: #ef4444;
+    background: rgba(239, 68, 68, 0.04);
+    padding-left: 1.25rem;
+  }
+
+  /* Red Glow Ambient Effects - More Intense */
+  .red-glow-ambient {
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    /* Use a more vibrant red with higher alpha for visibility on dark background */
+    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.4) 0%, rgba(239, 68, 68, 0.1) 45%, transparent 75%);
+    filter: blur(100px);
+    z-index: 5;
+    /* Above background and meshes (z-1), but below z-10 content */
+    pointer-events: none;
+    mix-blend-mode: screen;
+    /* Helps with vibrancy on dark backdrops */
+  }
+
+  .red-glow-top-left {
+    top: -10%;
+    left: -10%;
+  }
+
+  .red-glow-bottom-right {
+    bottom: -10%;
+    right: -10%;
+  }
+
+  .red-glow-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

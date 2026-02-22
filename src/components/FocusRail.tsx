@@ -89,8 +89,11 @@ const FocusRail = ({ items }: { items: Item[] }) => {
         <div
             id="projects"
             ref={containerRef}
-            className="relative h-screen w-full flex flex-col overflow-hidden select-none outline-none bg-background"
+            className="relative h-screen w-full flex flex-col select-none outline-none bg-background"
         >
+            {/* Ambient Red Glows */}
+            <div className="red-glow-ambient red-glow-top-left opacity-40" />
+            <div className="red-glow-ambient red-glow-bottom-right opacity-40" />
 
 
             <div className="relative z-10 flex flex-1 flex-col items-center justify-center max-w-[1200px] mx-auto w-full px-6">
@@ -138,6 +141,8 @@ const FocusRail = ({ items }: { items: Item[] }) => {
                                         src={item.imageSrc}
                                         alt={item.titlePart1}
                                         className={`h-full w-full object-cover transition-all duration-1000 ${isCenter ? 'opacity-100 grayscale-0' : 'opacity-80 grayscale-[20%]'}`}
+                                        loading="lazy"
+                                        decoding="async"
                                     />
                                     {!isCenter && <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />}
                                     {isCenter && <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-red-600 to-transparent z-20" />}
@@ -206,11 +211,11 @@ const FocusRail = ({ items }: { items: Item[] }) => {
 
 export function FocusRailSection() {
     const items: Item[] = [
-        { id: "1", titlePart1: "iPad", titlePart2: "Pro", meta: "CHIP M4", description: "O dispositivo mais potente da categoria, desenhado para criatividade sem limites.", imageSrc: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&q=80&w=1200" },
-        { id: "2", titlePart1: "Vision", titlePart2: "OS", meta: "UX ESPACIAL", description: "Exploração de fluxos imersivos em ambientes de realidade mista e espacial.", imageSrc: "https://images.unsplash.com/photo-1711234978644-32087593c200?auto=format&fit=crop&q=80&w=1200" },
-        { id: "3", titlePart1: "iPhone", titlePart2: "Pro", meta: "TITÂNIO", description: "Leveza aeroespacial e resistência extrema num design icónico e intemporal.", imageSrc: "https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=1200" },
-        { id: "4", titlePart1: "MacBook", titlePart2: "Air", meta: "CHIP M3", description: "Potência incrível e portabilidade extrema num design ultrafino de última geração.", imageSrc: "https://images.unsplash.com/photo-1517336714460-457229b49339?auto=format&fit=crop&q=80&w=1200" },
-        { id: "5", titlePart1: "Watch", titlePart2: "Ultra", meta: "ROBUSTEZ", description: "O relógio de aventura mais capaz e resistente de sempre para ambientes extremos.", imageSrc: "https://images.unsplash.com/photo-1617043786394-f977fa12eddf?auto=format&fit=crop&q=80&w=1200" },
+        { id: "1", titlePart1: "Pizzaria", titlePart2: "Premium", meta: "SABOR ARTESANAL", description: "Design moderno e otimizado para delivery, focado na experiência do usuário e conversão.", imageSrc: "/pizzaria.jpg" },
+        { id: "2", titlePart1: "Cazza", titlePart2: "Solar", meta: "ENERGIA LIMPA", description: "Energia solar sustentável e econômica para residências e empresas em Santa Catarina.", imageSrc: "/cazza-solar.jpg" },
+        { id: "3", titlePart1: "AI", titlePart2: "Flow", meta: "AGÊNCIA DE AUTOMAÇÃO 1.0", description: "Implementamos agentes de IA que cuidam do seu atendimento, vendas e triagem de dados.", imageSrc: "/ai-flow.jpg" },
+        { id: "4", titlePart1: "Agency", titlePart2: "OS", meta: "SISTEMA OPERACIONAL", description: "O comando central da sua operação. Dashboard inteligente para acompanhamento de leads, performance e ROI em tempo real.", imageSrc: "/agency-os.jpeg" },
+        { id: "5", titlePart1: "Clamore", titlePart2: "Sul", meta: "COSMÉTICOS PREMIUM", description: "Distribuidora oficial Clamore Sul em SC. Cosméticos de alta performance para salões e profissionais da beleza.", imageSrc: "/clamore-sul.jpeg" },
         { id: "6", titlePart1: "AirPods", titlePart2: "Max", meta: "ÁUDIO HIFI", description: "A combinação perfeita entre áudio de alta fidelidade e a magia intuitiva dos AirPods.", imageSrc: "https://images.unsplash.com/photo-1613040819284-93fa7f03387a?auto=format&fit=crop&q=80&w=1200" }
     ];
 

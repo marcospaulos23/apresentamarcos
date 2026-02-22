@@ -2,7 +2,10 @@ import { motion } from "framer-motion";
 
 const DigitalProductSection = () => {
     return (
-        <section className="relative w-full flex items-center justify-center min-h-screen bg-background overflow-hidden">
+        <section className="relative w-full flex items-center justify-center min-h-screen bg-background">
+            {/* Ambient Red Glows - Reduced Opacity */}
+            <div className="red-glow-ambient red-glow-top-left opacity-20" />
+            <div className="red-glow-ambient red-glow-bottom-right opacity-30" />
             {/* Fundo com grade estilo Nexus com degradê (máscara) - Restaurado para Dark */}
             <div className="absolute inset-0 z-0 opacity-[0.1] pointer-events-none"
                 style={{
