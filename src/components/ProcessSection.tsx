@@ -58,23 +58,25 @@ const StepItem = ({ step, index }: { step: typeof steps[0]; index: number }) => 
   return (
     <motion.div
       ref={ref}
-      className="step-item relative z-10 mb-32 md:mb-48 flex items-center justify-center w-full"
+      className={`step-item relative z-10 mb-32 md:mb-48 flex items-center justify-center w-full`}
       initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
+      whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-100px" }}
     >
-      {/* Step Number */}
+      {/* Step Number - Alinhado com a linha no mobile, centralizado no desktop */}
       <motion.div
-        className={`absolute left-1/2 -translate-x-1/2 w-14 h-14 md:w-[60px] md:h-[60px] bg-background border-[3px] ${colors.border} rounded-full flex items-center justify-center font-extrabold ${colors.text} z-20 text-sm md:text-base`}
+        className={`absolute left-[30px] md:left-1/2 -translate-x-1/2 w-14 h-14 md:w-[60px] md:h-[60px] bg-background border-[3px] ${colors.border} rounded-full flex items-center justify-center font-extrabold ${colors.text} z-20 text-sm md:text-base`}
         initial={{ scale: 0.5, opacity: 0 }}
-        animate={isInView ? { scale: 1, opacity: 1 } : {}}
+        whileInView={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
+        viewport={{ once: true }}
       >
         {step.number}
       </motion.div>
 
-      {/* Content */}
-      <div className={`step-content w-full md:w-[45%] ${isLeft ? 'md:mr-auto md:text-right md:pr-14' : 'md:ml-auto md:text-left md:pl-14'} pl-20 md:pl-0`}>
+      {/* Content - Padding aumentado no mobile para dar espaço à bolinha na esquerda */}
+      <div className={`step-content w-full md:w-[45%] ${isLeft ? 'md:mr-auto md:text-right md:pr-14' : 'md:ml-auto md:text-left md:pl-14'} pl-16 pr-4 md:pl-0 md:pr-0`}>
         <span className={`${colors.text} font-semibold text-sm uppercase tracking-widest opacity-80`}>
           {step.label}
         </span>
