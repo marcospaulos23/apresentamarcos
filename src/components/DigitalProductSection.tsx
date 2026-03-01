@@ -71,10 +71,12 @@ const DigitalProductSection = () => {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <button className="premium-button cursor-pointer relative px-12 md:px-[50px] py-5 md:py-[22px] text-sm md:text-base text-nexus-gold font-extrabold tracking-[2.5px] uppercase rounded-xl transition-all duration-500 hover:text-background hover:translate-y-[-8px] hover:shadow-[0_10px_30px_-5px_rgba(184,134,11,0.4)] group overflow-hidden">
-                        <span className="absolute inset-0 bg-gradient-to-b from-nexus-gold-light via-nexus-gold to-[hsl(38,60%,40%)] transform scale-0 transition-transform duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-150 rounded-xl" />
-                        <span className="relative z-10">Entre em Contato</span>
-                    </button>
+                    <a href="https://w.app/marcospaulo" target="_blank" rel="noopener noreferrer">
+                        <button className="premium-button cursor-pointer relative px-12 md:px-[50px] py-5 md:py-[22px] text-sm md:text-base text-nexus-gold font-extrabold tracking-[2.5px] uppercase rounded-xl transition-all duration-500 hover:text-background hover:translate-y-[-8px] hover:shadow-[0_10px_30px_-5px_rgba(184,134,11,0.4)] group overflow-hidden">
+                            <span className="absolute inset-0 bg-gradient-to-b from-nexus-gold-light via-nexus-gold to-[hsl(38,60%,40%)] transform scale-0 transition-transform duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-150 rounded-xl" />
+                            <span className="relative z-10">Entre em Contato</span>
+                        </button>
+                    </a>
                     <div className="w-full max-w-[200px] h-10 bg-gradient-to-b from-nexus-gold/20 to-transparent blur-lg mt-1 rounded-full opacity-40 transition-all duration-500 group-hover:opacity-70" />
                 </motion.div>
 

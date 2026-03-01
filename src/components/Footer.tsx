@@ -49,7 +49,9 @@ const Footer = () => {
               {["FAQ", "Privacidade", "Termos de Uso", "Contato"].map((item) => (
                 <li key={item}>
                   <a
-                    href="#"
+                    href={item === "Contato" ? "https://w.app/marcospaulo" : "#"}
+                    target={item === "Contato" ? "_blank" : undefined}
+                    rel={item === "Contato" ? "noopener noreferrer" : undefined}
                     className="text-muted-foreground text-sm hover:text-foreground transition-colors"
                   >
                     {item}
@@ -67,7 +69,9 @@ const Footer = () => {
             <div className="flex gap-4 mt-2">
               {/* WhatsApp */}
               <a
-                href="#"
+                href="https://w.app/marcospaulo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 border border-[#25D366]/30 rounded-full flex items-center justify-center text-[#25D366] hover:border-[#25D366] hover:text-white hover:bg-[#25D366] transition-all duration-300 shadow-[0_0_10px_rgba(37,211,102,0.1)] hover:shadow-[0_0_20px_rgba(37,211,102,0.4)]"
                 title="WhatsApp"
               >
@@ -78,7 +82,7 @@ const Footer = () => {
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/omarcopauloml?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                href="https://www.instagram.com/omarcospauloml?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 border border-[#E4405F]/30 rounded-full flex items-center justify-center text-[#E4405F] hover:border-transparent hover:text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] transition-all duration-300 shadow-[0_0_10px_rgba(228,64,95,0.1)] hover:shadow-[0_0_20px_rgba(228,64,95,0.4)]"
@@ -93,7 +97,9 @@ const Footer = () => {
 
               {/* TikTok */}
               <a
-                href="#"
+                href="https://www.tiktok.com/@omarcospaulomlz?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center bg-black text-white hover:border-white/30 transition-all duration-300 group relative overflow-hidden"
                 title="TikTok"
               >
@@ -115,7 +121,7 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© 2024 SaaS Studio. Todos os direitos reservados.</p>
+          <p>© 2026 SaaS Studio. Todos os direitos reservados.</p>
           <div className="flex gap-4">
             <span>Brasil</span>
             <span>Português (BR)</span>

@@ -75,8 +75,8 @@ const StepItem = ({ step, index }: { step: typeof steps[0]; index: number }) => 
         {step.number}
       </motion.div>
 
-      {/* Content - Padding aumentado no mobile para dar espaço à bolinha na esquerda */}
-      <div className={`step-content w-full md:w-[45%] ${isLeft ? 'md:mr-auto md:text-right md:pr-14' : 'md:ml-auto md:text-left md:pl-14'} pl-16 pr-4 md:pl-0 md:pr-0`}>
+      {/* Content - Padding aumentado ainda mais no mobile para evitar qualquer overlap com a bolinha */}
+      <div className={`step-content w-full md:w-[45%] ${isLeft ? 'md:mr-auto md:text-right md:pr-14' : 'md:ml-auto md:text-left md:pl-14'} pl-20 pr-4 md:pl-0 md:pr-0`}>
         <span className={`${colors.text} font-semibold text-sm uppercase tracking-widest opacity-80`}>
           {step.label}
         </span>
@@ -124,8 +124,8 @@ const ProcessSection = () => {
 
         {/* Timeline Container */}
         <div className="timeline-container relative">
-          {/* Timeline Line */}
-          <div className="absolute left-[30px] md:left-1/2 md:-translate-x-1/2 w-[2px] h-full timeline-line opacity-20 z-0" />
+          {/* Timeline Line - Centralizada no ponto anchor de 30px no mobile */}
+          <div className="absolute left-[30px] md:left-1/2 -translate-x-1/2 w-[2px] h-full timeline-line opacity-20 z-0" />
 
           {steps.map((step, index) => (
             <StepItem key={step.number} step={step} index={index} />
@@ -141,7 +141,9 @@ const ProcessSection = () => {
           viewport={{ once: true }}
         >
           <a
-            href="#"
+            href="https://w.app/marcospaulo"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group flex items-center gap-3 bg-gradient-to-br from-blue-600 to-blue-900 px-10 py-5 rounded-full text-white font-bold text-sm md:text-base uppercase tracking-widest shadow-[0_4px_25px_rgba(37,99,235,0.4)] transition-all hover:scale-105 hover:shadow-[0_8px_35px_rgba(37,99,235,0.6)] hover:brightness-110 active:scale-95"
           >
             👉 Falar sobre meu projeto

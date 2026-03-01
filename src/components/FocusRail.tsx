@@ -215,8 +215,7 @@ export function FocusRailSection() {
         { id: "2", titlePart1: "Cazza", titlePart2: "Solar", meta: "ENERGIA LIMPA", description: "Energia solar sustentável e econômica para residências e empresas em Santa Catarina.", imageSrc: "/cazza-solar.jpg" },
         { id: "3", titlePart1: "AI", titlePart2: "Flow", meta: "AGÊNCIA DE AUTOMAÇÃO 1.0", description: "Implementamos agentes de IA que cuidam do seu atendimento, vendas e triagem de dados.", imageSrc: "/ai-flow.jpg" },
         { id: "4", titlePart1: "Agency", titlePart2: "OS", meta: "SISTEMA OPERACIONAL", description: "O comando central da sua operação. Dashboard inteligente para acompanhamento de leads, performance e ROI em tempo real.", imageSrc: "/agency-os.jpeg" },
-        { id: "5", titlePart1: "Clamore", titlePart2: "Sul", meta: "COSMÉTICOS PREMIUM", description: "Distribuidora oficial Clamore Sul em SC. Cosméticos de alta performance para salões e profissionais da beleza.", imageSrc: "/clamore-sul.jpeg" },
-        { id: "6", titlePart1: "AirPods", titlePart2: "Max", meta: "ÁUDIO HIFI", description: "A combinação perfeita entre áudio de alta fidelidade e a magia intuitiva dos AirPods.", imageSrc: "https://images.unsplash.com/photo-1613040819284-93fa7f03387a?auto=format&fit=crop&q=80&w=1200" }
+        { id: "5", titlePart1: "Clamore", titlePart2: "Sul", meta: "COSMÉTICOS PREMIUM", description: "Distribuidora oficial Clamore Sul em SC. Cosméticos de alta performance para salões e profissionais da beleza.", imageSrc: "/clamore-sul.jpeg" }
     ];
 
     return <FocusRail items={items} />;

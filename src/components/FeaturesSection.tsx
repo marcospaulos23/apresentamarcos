@@ -68,7 +68,9 @@ const FeaturesSection = () => {
 
           <div className="pt-6">
             <a
-              href="#process"
+              href="https://w.app/marcospaulo"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block px-8 py-4 bg-foreground text-background font-bold rounded-full hover:bg-accent hover:text-accent-foreground transition-all duration-300 transform active:scale-95 shadow-xl shadow-foreground/5"
             >
               Entre em Contato

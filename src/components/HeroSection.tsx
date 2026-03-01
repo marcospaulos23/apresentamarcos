@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const HeroSection = () => {
   const [isSubVisible, setIsSubVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isLockedRef = useRef(true);
   const isSubVisibleRef = useRef(false);
 
@@ -97,11 +99,20 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
 
       {/* Floating Navigation */}
-      <nav className="floating-nav fixed top-6 left-1/2 -translate-x-1/2 w-[60%] max-w-[1000px] h-16 rounded-[22px] flex items-center justify-between px-6 z-50">
-        <div className="flex items-center">
+      <nav className={`floating-nav fixed top-6 left-1/2 -translate-x-1/2 ${isMenuOpen ? 'w-[90%] h-auto py-8' : 'w-[90%] md:w-[60%] h-16'} max-w-[1000px] rounded-[22px] flex flex-col md:flex-row items-center justify-between px-6 z-50 transition-all duration-500`}>
+        <div className="flex items-center justify-between w-full md:w-auto h-16 md:h-auto">
           <span className="font-black tracking-tighter text-xl italic text-foreground uppercase">SaaS Studio</span>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2 text-foreground"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
 
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center">
           <a href="#" className="text-muted-foreground text-sm font-medium transition-colors hover:text-foreground mx-4 tracking-wide">
             Início
@@ -114,12 +125,42 @@ const HeroSection = () => {
           </a>
         </div>
 
-        <a
-          href="#process"
-          className="btn-fill-right bg-white/10 border border-white/5 text-foreground px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all"
-        >
-          Entre em Contato
-        </a>
+        {/* Desktop Button */}
+        <div className="hidden md:block">
+          <a
+            href="https://w.app/marcospaulo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-fill-right bg-white/10 border border-white/5 text-foreground px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-all"
+          >
+            Entre em Contato
+          </a>
+        </div>
+
+        {/* Mobile Expanded Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="flex flex-col items-center gap-6 mt-8 md:hidden w-full pb-4"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+            >
+              <a href="#" onClick={() => setIsMenuOpen(false)} className="text-foreground text-lg font-bold">Início</a>
+              <a href="#process" onClick={() => setIsMenuOpen(false)} className="text-foreground text-lg font-bold">Como funciona</a>
+              <a href="#projects" onClick={() => setIsMenuOpen(false)} className="text-foreground text-lg font-bold">Projetos</a>
+              <a
+                href="https://w.app/marcospaulo"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-accent text-accent-foreground px-8 py-4 rounded-xl font-black uppercase tracking-widest w-full text-center"
+              >
+                Entre em Contato
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Main Content */}
