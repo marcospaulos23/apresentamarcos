@@ -141,8 +141,7 @@ const FocusRail = ({ items }: { items: Item[] }) => {
                                         src={item.imageSrc}
                                         alt={item.titlePart1}
                                         className={`h-full w-full object-cover transition-all duration-1000 ${isCenter ? 'opacity-100 grayscale-0' : 'opacity-80 grayscale-[20%]'}`}
-                                        loading="lazy"
-                                        decoding="async"
+                                        loading="eager"
                                     />
                                     {!isCenter && <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />}
                                     {isCenter && <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-red-600 to-transparent z-20" />}

@@ -16,8 +16,7 @@ const ProfileSection = () => {
                                 src="/profile-marcos.jpg"
                                 alt="Perfil Profissional"
                                 className="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-700 scale-[1.1] -translate-y-[4%]"
-                                loading="lazy"
-                                decoding="async"
+                                loading="eager"
                             />
 
                             {/* Overlay de Interface Técnica */}

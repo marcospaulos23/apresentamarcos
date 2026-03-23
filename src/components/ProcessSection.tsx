@@ -103,9 +103,7 @@ const ProcessSection = () => {
       <div className="red-glow-ambient red-glow-center opacity-30 scale-150" />
       <div className="red-glow-ambient red-glow-top-left opacity-20" />
 
-
       <div className="max-w-6xl mx-auto">
-
         {/* Header */}
         <motion.div
           className="text-center mb-24 md:mb-32"

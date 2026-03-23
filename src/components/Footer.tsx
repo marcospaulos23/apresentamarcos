@@ -4,13 +4,7 @@ const Footer = () => {
   return (
     <footer id="footer" className="relative bg-background border-t border-border px-5 md:px-8 py-12 md:py-16 overflow-hidden">
       <div className="relative z-10 max-w-[1200px] mx-auto">
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
           {/* Logo/About Column */}
           <div className="col-span-2 md:col-span-1">
             <div className="font-semibold text-2xl tracking-tight text-foreground mb-5 uppercase">

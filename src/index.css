@@ -143,7 +143,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translateZ(0);
+    will-change: transform;
     width: 100vw;
     height: 100vw;
     max-width: 1400px;
@@ -152,8 +153,8 @@
         rgba(255, 255, 255, 0.25) 0%,
         rgba(255, 255, 255, 0.1) 20%,
         rgba(255, 255, 255, 0.05) 40%,
+        rgba(255, 255, 255, 0.01) 55%,
         transparent 70%);
-    filter: blur(45px);
     z-index: 0;
     pointer-events: none;
   }
@@ -389,10 +390,12 @@
     width: 800px;
     height: 800px;
     border-radius: 50%;
-    /* Use a more vibrant red with higher alpha for visibility on dark background */
-    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.4) 0%, rgba(239, 68, 68, 0.1) 45%, transparent 75%);
-    filter: blur(100px);
+    /* Softened gradient stops exactly reproduce the blur effect natively */
+    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.4) 0%, rgba(239, 68, 68, 0.1) 30%, rgba(239, 68, 68, 0.02) 60%, transparent 75%);
     z-index: 5;
+    /* GPU Acceleration to avoid page repainting on scroll */
+    transform: translateZ(0);
+    will-change: transform;
     /* Above background and meshes (z-1), but below z-10 content */
     pointer-events: none;
     mix-blend-mode: screen;

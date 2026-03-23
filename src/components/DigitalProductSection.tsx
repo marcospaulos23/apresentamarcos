@@ -26,37 +26,19 @@ const DigitalProductSection = () => {
 
             <div className="relative z-10 flex flex-col items-center max-w-6xl w-full px-6 py-24 text-center">
                 {/* Tag superior estilo "Próxima Geração" */}
-                <motion.div
-                    className="inline-flex items-center gap-2 border border-accent/20 bg-accent/5 text-accent px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
+                <motion.div className="inline-flex items-center gap-2 border border-accent/20 bg-accent/5 text-accent px-3 py-1 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] mb-8">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                     Transformação Digital
                 </motion.div>
 
                 {/* Título Principal com estilo Future Standards */}
-                <motion.h2
-                    className="font-black text-5xl md:text-8xl mb-24 uppercase tracking-tighter leading-[0.9] text-foreground"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    viewport={{ once: true }}
-                >
+                <motion.h2 className="font-black text-5xl md:text-8xl mb-24 uppercase tracking-tighter leading-[0.9] text-foreground">
                     Vamos construir<br />
                     <span className="text-muted-foreground">seu SaaS?</span>
                 </motion.h2>
 
                 {/* Texto descritivo com indicador lateral */}
-                <motion.div
-                    className="max-w-xl text-left mb-16 border-l-2 border-accent pl-6 mx-auto"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                >
+                <motion.div className="max-w-xl text-left mb-16 border-l-2 border-accent pl-6 mx-auto">
                     <p className="text-muted-foreground text-lg md:text-xl leading-relaxed font-light">
                         Pronto para transformar sua ideia em um produto digital profissional?
                         Elevamos a sua interface ao estado da arte, criando experiências que dominam o mercado.
@@ -64,13 +46,7 @@ const DigitalProductSection = () => {
                 </motion.div>
 
                 {/* CTA principal - Trocado por Premium Button */}
-                <motion.div
-                    className="relative flex flex-col items-center perspective-1000"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
+                <motion.div className="relative flex flex-col items-center perspective-1000">
                     <a href="https://w.app/marcospaulo" target="_blank" rel="noopener noreferrer">
                         <button className="premium-button cursor-pointer relative px-12 md:px-[50px] py-5 md:py-[22px] text-sm md:text-base text-nexus-gold font-extrabold tracking-[2.5px] uppercase rounded-xl transition-all duration-500 hover:text-background hover:translate-y-[-8px] hover:shadow-[0_10px_30px_-5px_rgba(184,134,11,0.4)] group overflow-hidden">
                             <span className="absolute inset-0 bg-gradient-to-b from-nexus-gold-light via-nexus-gold to-[hsl(38,60%,40%)] transform scale-0 transition-transform duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-150 rounded-xl" />
@@ -81,13 +57,7 @@ const DigitalProductSection = () => {
                 </motion.div>
 
                 {/* Footer sutil de performance */}
-                <motion.div
-                    className="mt-24 pt-8 border-t border-white/5 w-full flex flex-wrap justify-center gap-x-12 gap-y-4"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    viewport={{ once: true }}
-                >
+                <motion.div className="mt-24 pt-8 border-t border-white/5 w-full flex flex-wrap justify-center gap-x-12 gap-y-4">
                     <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/60 font-bold">High End Design</span>
                     <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/60 font-bold">Performance Core</span>
                     <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground/60 font-bold">SaaS Excellence</span>

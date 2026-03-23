@@ -35,7 +35,6 @@ const FeaturesSection = () => {
       <div className="red-glow-ambient red-glow-top-left opacity-40" />
       <div className="red-glow-ambient red-glow-bottom-right opacity-30" />
 
-
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full">
 
         {/* Left Side: Text */}
